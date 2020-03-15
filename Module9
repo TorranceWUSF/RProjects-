@@ -1,0 +1,14 @@
+library("lattice")
+library("ggplot2")
+
+data <- read.csv("beaver.csv")
+
+a <- plot(data$time, data$temp)
+a
+b <- histogram(~data$temp, xlab = "Temperatures")
+b
+
+
+c <- ggplot(data, aes(x = temp, y = time, col = ifelse(time < 1050, "red", "green")))
+
+c + geom_jitter()
